@@ -1,10 +1,10 @@
-# 🔥 Projet Java 2024–2025 : Pokémon Battle Engine
+#  Projet Java 2024–2025 : Pokémon Battle Engine
 
 Bienvenue dans **Pokémon Battle Engine**, un mini-jeu en Java développé dans le cadre des TP Java de LPDIM. Ce projet, réparti en deux parties, propose d’abord un moteur de combat entre Pokémon, puis une version avancée inspirée des échecs sur un plateau 9x9.
 
 ---
 
-## 📌 Objectifs pédagogiques
+##  Objectifs pédagogiques
 
 - Créer et structurer des classes Java.
 - Manipuler des objets et appliquer les principes de l'encapsulation.
@@ -14,7 +14,7 @@ Bienvenue dans **Pokémon Battle Engine**, un mini-jeu en Java développé dans 
 
 ---
 
-## 🧱 Structure du projet
+##  Structure du projet
 
 ### Partie 1 – Moteur de combat Pokémon
 - Création de la classe `Type` : gestion des types, noms, et efficacité.
@@ -22,7 +22,7 @@ Bienvenue dans **Pokémon Battle Engine**, un mini-jeu en Java développé dans 
 - Implémentation de la méthode `attaque` avec prise en compte de la vitesse et des types.
 - Classe `Main` : création de deux Pokémon et exécution d’un combat jusqu’à la mort d’un des deux.
 
-#### 🔁 Améliorations :
+####  Améliorations :
 - Lecture automatique des statistiques depuis un fichier `pokedex.csv`.
 - Simplification de l’instanciation.
 - Prise en compte des types dans le calcul des dégâts.
@@ -36,13 +36,13 @@ Bienvenue dans **Pokémon Battle Engine**, un mini-jeu en Java développé dans 
   - Attaque si un ennemi est sur une case voisine.
 - Condition de victoire : tuer le **Mewtwo** adverse.
 
-#### 🧩 Bonus :
+####  Bonus :
 - Chargement du plateau depuis un fichier de configuration.
 - Placement personnalisé des Pokémon en début de partie.
 
 ---
 
-## 🖥️ Lancement du projet
+##  Lancement du projet
 
 1. Cloner le dépôt :
    ```bash
