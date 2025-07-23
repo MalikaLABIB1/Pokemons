@@ -1,6 +1,6 @@
 package src;
+
 public class type {
-    // Constants for each type
     public static final int NORMAL = 0;
     public static final int FEU = 1;
     public static final int EAU = 2;
@@ -16,29 +16,64 @@ public class type {
     public static final int ROCHE = 12;
     public static final int SPECTRE = 13;
     public static final int DRAGON = 14;
-
     public static final String[] POKEMON_NAMES = {
-        "Bulbizarre", "Herbizarre", "Florizarre", "Salamèche", "Reptincel", 
-        "Dracolosse", "Mewtwo", "Mew"
+        "Bulbizarre", "Herbizarre", "Florizarre", "Salamèche", "Reptincel",
+        "Dracaufeu", "Carapuce", "Carabaffe", "Tortank", "Chenipan",
+        "Chrysacier", "Papilusion", "Aspicot", "Coconfort", "Dardargnan",
+        "Roucool", "Roucoups", "Roucarnage", "Rattata", "Rattatac",
+        "Piafabec", "Rapasdepic", "Abo", "Arbok", "Pikachu",
+        "Raichu", "Sabelette", "Sablaireau", "Nidoran♀", "Nidorina",
+        "Nidoqueen", "Nidoran♂", "Nidorino", "Nidoking", "Mélofée",
+        "Mélodelfe", "Goupix", "Feunard", "Rondoudou", "Grodoudou",
+        "Nosferapti", "Nosferalto", "Mystherbe", "Ortide", "Rafflesia",
+        "Paras", "Parasect", "Mimitoss", "Aéromite", "Taupiqueur",
+        "Triopikeur", "Miaouss", "Persian", "Psykokwak", "Akwakwak",
+        "Férosinge", "Colossinge", "Caninos", "Arcanin", "Ptitard",
+        "Têtarte", "Tartard", "Abra", "Kadabra", "Alakazam",
+        "Machoc", "Machopeur", "Mackogneur", "Chétiflor", "Boustiflor",
+        "Empiflor", "Tentacool", "Tentacruel", "Racaillou", "Gravalanch",
+        "Grolem", "Ponyta", "Galopa", "Ramoloss", "Flagadoss",
+        "Magnéti", "Magnéton", "Canarticho", "Doduo", "Dodrio",
+        "Otaria", "Lamantine", "Tadmorv", "Grotadmorv", "Kokiyas",
+        "Crustabri", "Fantominus", "Spectrum", "Ectoplasma", "Onix",
+        "Soporifik", "Hypnomade", "Krabby", "Krabboss", "Voltorbe",
+        "Électrode", "Noeunoeuf", "Noadkoko", "Osselait", "Ossatueur",
+        "Kicklee", "Tygnon", "Excelangue", "Smogo", "Smogogo",
+        "Rhinocorne", "Rhinoféros", "Leveinard", "Saquedeneu", "Kangourex",
+        "Hypotrempe", "Hypocéan", "Poissirène", "Poissoroy", "Stari",
+        "Staross", "M. Mime", "Insécateur", "Lippoutou", "Élektek",
+        "Magmar", "Scarabrute", "Tauros", "Magicarpe", "Léviator",
+        "Lokhlass", "Métamorph", "Évoli", "Aquali", "Voltali",
+        "Pyroli", "Porygon", "Amonita", "Amonistar", "Kabuto",
+        "Kabutops", "Ptéra", "Ronflex", "Artikodin", "Électhor",
+        "Sulfura", "Minidraco", "Draco", "Dracolosse", "Mewtwo",
+        "Mew"
     };
-
     public static final String[] TYPE_NAMES = {
-        "Normal", "Feu", "Eau", "Plante", "Electrik", 
-        "Glace", "Combat", "Poison", "Sol", "Vol", 
+        "Normal", "Feu", "Eau", "Plante", "Electrik",
+        "Glace", "Combat", "Poison", "Sol", "Vol",
         "Psy", "Insecte", "Roche", "Spectre", "Dragon"
     };
-
     public static final double[][] TYPE_EFFECTIVENESS = {
-        // Normal, Feu, Eau, Plante, Electrik, Glace, Combat, Poison, Sol, Vol, Psy, Insecte, Roche, Spectre, Dragon
         {1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 0.0, 1.0}, // Normal
         {1.0, 0.5, 0.5, 2.0, 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 0.5, 1.0, 0.5}, // Feu
         {1.0, 2.0, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 1.0, 2.0, 1.0, 0.5}, // Eau
+        {1.0, 0.5, 2.0, 0.5, 1.0, 1.0, 1.0, 0.5, 2.0, 0.5, 1.0, 0.5, 2.0, 1.0, 0.5}, // Plante
+        {1.0, 1.0, 2.0, 0.5, 0.5, 1.0, 1.0, 1.0, 0.0, 2.0, 1.0, 1.0, 1.0, 1.0, 0.5}, // Electrik
+        {1.0, 0.5, 0.5, 2.0, 1.0, 0.5, 1.0, 1.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0}, // Glace
+        {2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 0.5, 1.0, 0.5, 0.5, 0.5, 2.0, 0.0, 1.0}, // Combat
+        {1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0}, // Poison
+        {1.0, 2.0, 1.0, 0.5, 2.0, 1.0, 1.0, 2.0, 1.0, 0.0, 1.0, 0.5, 2.0, 1.0, 1.0}, // Sol
+        {1.0, 1.0, 1.0, 2.0, 0.5, 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 0.5, 1.0, 1.0}, // Vol
+        {1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 1.0, 1.0, 0.5, 1.0, 1.0, 1.0, 1.0}, // Psy
+        {1.0, 0.5, 1.0, 2.0, 1.0, 1.0, 0.5, 0.5, 1.0, 0.5, 2.0, 1.0, 1.0, 0.5, 1.0}, // Insecte
+        {1.0, 2.0, 1.0, 1.0, 1.0, 2.0, 0.5, 1.0, 0.5, 2.0, 1.0, 2.0, 1.0, 1.0, 1.0}, // Roche
+        {0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0}, // Spectre
+        {1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0}  // Dragon
     };
 
     /**
      * Gets the name of a Pokémon by its Pokédex number
-     * @param pokedexNumber The Pokédex number (1-151)
-     * @return The Pokémon's species name
      */
     public static String getPokemonName(int pokedexNumber) {
         if (pokedexNumber < 1 || pokedexNumber > 151) {
@@ -49,8 +84,6 @@ public class type {
 
     /**
      * Gets the name of a type by its constant value
-     * @param type The type constant
-     * @return The type's name
      */
     public static String getTypeName(int type) {
         if (type < 0 || type >= TYPE_NAMES.length) {
@@ -61,9 +94,6 @@ public class type {
 
     /**
      * Calculates the effectiveness multiplier between two types
-     * @param attackType The attacking type
-     * @param defendType The defending type
-     * @return The effectiveness multiplier (0, 0.5, 1, or 2)
      */
     public static double getEffectiveness(int attackType, int defendType) {
         if (attackType < 0 || attackType >= TYPE_EFFECTIVENESS.length ||
