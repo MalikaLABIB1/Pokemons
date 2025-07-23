@@ -3,12 +3,12 @@ public class Main {
     public static void main(String[] args) {
         // Create two Pokémon
         Pokemon colossinge = new Pokemon(
-            57, "Robert", Type.COMBAT, -1, 
+            57, "Robert", type.COMBAT, -1, 
             65, 105, 60, 95
         );
         
         Pokemon ectoplasma = new Pokemon(
-            94, "Gustave", Type.SPECTRE, Type.POISON, 
+            94, "Gustave", type.SPECTRE, type.POISON, 
             60, 65, 60, 110
         );
         
