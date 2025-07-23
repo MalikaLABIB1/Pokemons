@@ -13,7 +13,7 @@ public class Pokemon {
     private int speed;
     private int currentHp;
 
-    // Default constructor - creates MissingNo
+    
     public Pokemon() {
         this.pokedexNumber = 0;
         this.nickname = "MissingNo";
@@ -26,7 +26,7 @@ public class Pokemon {
         this.currentHp = hp;
     }
 
-    // Full constructor
+   
     public Pokemon(int pokedexNumber, String nickname, int type1, int type2, 
                   int hp, int attack, int defense, int speed) {
         this.pokedexNumber = pokedexNumber;
@@ -40,12 +40,12 @@ public class Pokemon {
         this.currentHp = hp;
     }
 
-    // CSV-based constructor
+    
     public Pokemon(int pokedexNumber, String nickname) {
         this.pokedexNumber = pokedexNumber;
         this.nickname = nickname;
         
-        // Default values if reading fails
+       
         this.type1 = Type.NORMAL;
         this.type2 = -1;
         this.hp = 33;
@@ -53,7 +53,7 @@ public class Pokemon {
         this.defense = 0;
         this.speed = 29;
         
-        // Try to read from CSV file
+        
         try (BufferedReader br = new BufferedReader(new FileReader("data/pokedex.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -76,14 +76,14 @@ public class Pokemon {
         }
     }
 
-    // Helper method to convert type string to constant
+    
     private int getTypeConstant(String typeName) {
         for (int i = 0; i < Type.TYPE_NAMES.length; i++) {
             if (Type.TYPE_NAMES[i].equalsIgnoreCase(typeName)) {
                 return i;
             }
         }
-        return Type.NORMAL; // Default to normal if not found
+        return Type.NORMAL; 
     }
 
     // ... [rest of the existing Pokemon class methods remain unchanged]
