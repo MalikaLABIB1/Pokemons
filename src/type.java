@@ -1,6 +1,5 @@
 package src;
-public class Type {
-    // Constants for each type
+public class type {
     public static final int NORMAL = 0;
     public static final int FEU = 1;
     public static final int EAU = 2;
@@ -16,29 +15,21 @@ public class Type {
     public static final int ROCHE = 12;
     public static final int SPECTRE = 13;
     public static final int DRAGON = 14;
-
-    // Names of all Pokémon in Pokédex order
     public static final String[] POKEMON_NAMES = {
         "Bulbizarre", "Herbizarre", "Florizarre", "Salamèche", "Reptincel", 
-        // ... (complete with all 151 Pokémon names)
         "Dracolosse", "Mewtwo", "Mew"
     };
-
-    // Names of all types
     public static final String[] TYPE_NAMES = {
         "Normal", "Feu", "Eau", "Plante", "Electrik", 
         "Glace", "Combat", "Poison", "Sol", "Vol", 
         "Psy", "Insecte", "Roche", "Spectre", "Dragon"
     };
 
-    // Type effectiveness chart [attacker][defender]
-    // 1.0 = normal, 2.0 = super effective, 0.5 = not very effective, 0 = immune
     public static final double[][] TYPE_EFFECTIVENESS = {
-        // Normal, Feu, Eau, Plante, Electrik, Glace, Combat, Poison, Sol, Vol, Psy, Insecte, Roche, Spectre, Dragon
+       
         {1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 0.0, 1.0}, // Normal
         {1.0, 0.5, 0.5, 2.0, 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 0.5, 1.0, 0.5}, // Feu
         {1.0, 2.0, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 1.0, 2.0, 1.0, 0.5}, // Eau
-        // ... (complete effectiveness chart for all types)
     };
 
     /**
