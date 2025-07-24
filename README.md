@@ -1,6 +1,6 @@
 #  Projet Java 2024–2025 : Pokémon 
 
-Bienvenue dans **Pokémon Battle Engine**, un mini-jeu en Java développé dans le cadre des TP Java de LPDIM. Ce projet, réparti en deux parties, propose d’abord un moteur de combat entre Pokémon, puis une version avancée inspirée des échecs sur un plateau 9x9.
+Bienvenue dans **Pokémon**, un mini-jeu en Java développé dans le cadre des TP Java de LPDIM. Ce projet, réparti en deux parties, propose d’abord un moteur de combat entre Pokémon, puis une version avancée inspirée des échecs sur un plateau 9x9.
 
 ---
 
