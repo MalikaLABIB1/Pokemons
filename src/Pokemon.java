@@ -58,11 +58,15 @@ public class Pokemon {
         try (BufferedReader br = new BufferedReader(new FileReader("data/pokedex.csv"))) {
             String line; br.readLine(); 
             while ((line = br.readLine()) != null) {
-                String[] values = line.split(";");
+                String[] values = line.split(";",-1);
+                if (values.length < 8 || !values[0].matches("\\d+")) continue;
+                
                 int currentNum = Integer.parseInt(values[0]);
                 if (currentNum == pokedexNumber) {
-                    this.type1 = getTypeConstant(values[2]);
-                    this.type2 = values[3].isEmpty() ? -1 : getTypeConstant(values[3]);
+                    this.type1 = getTypeConstant(values[2].trim());
+                     String type2Str = values[3].trim();
+                    this.type2 = type2Str.isEmpty() ? -1 : getTypeConstant(type2Str);
+                    
                     this.hp = Integer.parseInt(values[4]);
                     this.attack = Integer.parseInt(values[5]);
                     this.defense = Integer.parseInt(values[6]);
