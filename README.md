@@ -49,14 +49,14 @@ Bienvenue dans **Pokémon Battle Engine**, un mini-jeu en Java développé dans 
   - Crée des tests de combats simples dans la classe Main.
     
 -Soumaya BOULLOUA : Développeur du jeu sur plateau.
-  -Conçoit la classe Plateau (grille 9x9).
-  -Implémente la logique de déplacement et d’attaque sur le plateau.
-  -Gère le déroulement du jeu en tour par tour.
+  - Conçoit la classe Plateau (grille 9x9).
+  - Implémente la logique de déplacement et d’attaque sur le plateau.
+  - Gère le déroulement du jeu en tour par tour.
 
 -Hamza KHOUMANIA : Développeur de l’interface/configuration
-  -Créer une interface console ou textuelle pour choisir les pokémons au début de partie.
-  -Permet le chargement d’un fichier de configuration pour placer les pokémons sur le plateau.
-  -Gère l'affichage du plateau à chaque tour (grille avec pokémons).
+  - Créer une interface console ou textuelle pour choisir les pokémons au début de partie.
+  - Permet le chargement d’un fichier de configuration pour placer les pokémons sur le plateau.
+  - Gère l'affichage du plateau à chaque tour (grille avec pokémons).
   
 ---
 
