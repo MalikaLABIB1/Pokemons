@@ -43,18 +43,18 @@ Bienvenue dans **Pokémon Battle Engine**, un mini-jeu en Java développé dans 
 ---
 
 ##  Les Taches : 
--Malika LABIB : Développeur du moteur de combat
+-Malika LABIB : Développeuse moteur de combat
   - Implémente les classes Type et Pokemon.
   - Gère la lecture du Pokédex CSV pour instancier automatiquement les pokémons.
-  - Crée des tests de combats simples dans la classe Main.
+  - Créer des tests de combats simples dans la classe Main.
     
--Soumaya BOULLOUA : Développeur du jeu sur plateau.
-  - Conçoit la classe Plateau (grille 9x9).
-  - Implémente la logique de déplacement et d’attaque sur le plateau.
+-Soumaya BOULLOUA : Développeuse du jeu sur plateau.
+  - Conception la classe Plateau (grille 9x9).
+  - Gestion des déplacements et des attaques tour par tour.
   - Gère le déroulement du jeu en tour par tour.
 
 -Hamza KHOUMANIA : Développeur de l’interface/configuration
-  - Créer une interface console ou textuelle pour choisir les pokémons au début de partie.
+  - Créer une interface console pour choisir les Pokémon au début.
   - Permet le chargement d’un fichier de configuration pour placer les pokémons sur le plateau.
   - Gère l'affichage du plateau à chaque tour (grille avec pokémons).
   
