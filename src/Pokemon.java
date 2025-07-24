@@ -56,7 +56,7 @@ public class Pokemon {
         this.speed = 29;
         this.currentHp = hp;
         try (BufferedReader br = new BufferedReader(new FileReader("data/pokedex.csv"))) {
-            String line;
+            String line; br.readLine(); 
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
                 int currentNum = Integer.parseInt(values[0]);
