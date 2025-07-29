@@ -73,6 +73,7 @@ Bienvenue dans **Pokémon**, un mini-jeu en Java développé dans le cadre des T
 
 1. Cloner le dépôt :
    ```bash
-   git clone https://github.com/votre-compte/pokemon-.git
-   cd projet-java-pokemon-
+    git clone https://github.com/MalikaLABIB1/Pokemons.git
+    cd Pokemons
+
 
