@@ -11,11 +11,10 @@ import javax.imageio.ImageIO;
 public class PokemonChess {
     private List<Point> validMoves = new ArrayList<>();
     private static final int BOARD_SIZE = 9;
-    private static final int TILE_SIZE = 100;
+    private static final int TILE_SIZE = 70;
     private Board board;
     private JFrame frame;
     private JPanel chessPanel;
-    private JLabel statusLabel;
     private int selectedRow = -1, selectedCol = -1;
     private boolean player1Turn = true;
     private Map<String, BufferedImage> pokemonImages = new HashMap<>();
@@ -105,11 +104,11 @@ public class PokemonChess {
         for (int i = 0; i < 9; i++) {
             board.placePokemon(0, i, new Pokemon(allPokemonNames.get(i), getPokemonStats(allPokemonNames.get(i)), false));
             
-            board.placePokemon(1, i, new Pokemon(allPokemonNames.get(i+8), getPokemonStats(allPokemonNames.get(i+8)), false));
+            board.placePokemon(1, i, new Pokemon(allPokemonNames.get(i+9), getPokemonStats(allPokemonNames.get(i+9)), false));
             
-            board.placePokemon(7, i, new Pokemon(allPokemonNames.get(i+16), getPokemonStats(allPokemonNames.get(i+16)), true));
+            board.placePokemon(8, i, new Pokemon(allPokemonNames.get(i+18), getPokemonStats(allPokemonNames.get(i+18)), true));
             
-            board.placePokemon(6, i, new Pokemon(allPokemonNames.get(i+24), getPokemonStats(allPokemonNames.get(i+24)), true));
+            board.placePokemon(7, i, new Pokemon(allPokemonNames.get(i+27), getPokemonStats(allPokemonNames.get(i+27)), true));
         }
     }
 
@@ -134,7 +133,7 @@ public class PokemonChess {
     private void createGUI() {
         frame = new JFrame("Pokemon Chess");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(BOARD_SIZE * TILE_SIZE, BOARD_SIZE * TILE_SIZE);
+        frame.setSize(BOARD_SIZE * TILE_SIZE + 16, BOARD_SIZE * TILE_SIZE + 39);
         frame.setResizable(false);
 
         chessPanel = new JPanel() {
@@ -194,7 +193,7 @@ public class PokemonChess {
 
             if (selectedRow == -1) {
                 Pokemon pokemon = board.getPokemon(row, col);
-                if (pokemon != null && pokemon.isPlayer2() == !player1Turn) {
+                if (pokemon != null && pokemon.isPlayer2() != player1Turn) {
                     selectedRow = row;
                     selectedCol = col;
                     validMoves = board.getValidMoves(row, col); // get valid moves
