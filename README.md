@@ -43,20 +43,29 @@ Bienvenue dans **Pokémon**, un mini-jeu en Java développé dans le cadre des T
 ---
 
 ##  Les Taches : 
--Malika LABIB : Développeuse moteur de combat
+-Malika LABIB : Développeuse moteur de combat + Interfaces
   - Implémente les classes Type et Pokemon.
   - Gère la lecture du Pokédex CSV pour instancier automatiquement les pokémons.
   - Créer des tests de combats simples dans la classe Main.
+  - Menu de sélection des pokémons en début de partie.
+  - charger un fichier de configuration pour initialiser le plateau en début de partie.
+  - afficher textuellement le plateau 9x9 après chaque tour de jeu.
     
 -Soumaya BOULLOUA : Développeuse du jeu sur plateau.
   - Conception la classe Plateau (grille 9x9).
   - Gestion des déplacements et des attaques tour par tour.
   - Gère le déroulement du jeu en tour par tour.
 
--Hamza KHOUMANIA : Développeur de l’interface/configuration
-  - Créer une interface console pour choisir les Pokémon au début.
-  - Permet le chargement d’un fichier de configuration pour placer les pokémons sur le plateau.
-  - Gère l'affichage du plateau à chaque tour (grille avec pokémons).
+-Hamza KHOUMANIA : Graphismes avec MG2D
+  - Utilisation de la bibliothèque MG2D :
+      -Création de la fenêtre graphique du plateau 9x9.
+      -Représentation visuelle des pokémons via images ou formes MG2D.
+  - Animation de :
+      -Déplacements
+      -Attaques
+      -Disparition de pokémon vaincu
+  - Interaction graphique .
+  - Mise à jour visuelle du plateau selon l’état du jeu géré par Soumaya BOULLOUA.
   
 ---
 
