@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 public class PokemonChess {
     private List<Point> validMoves = new ArrayList<>();
     private static final int BOARD_SIZE = 9;
-    private static final int TILE_SIZE = 80;
+    private static final int TILE_SIZE = 100;
     private Board board;
     private JFrame frame;
     private JPanel chessPanel;
@@ -134,9 +134,10 @@ public class PokemonChess {
     private void createGUI() {
         frame = new JFrame("Pokemon Chess");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(BOARD_SIZE * TILE_SIZE + 50, BOARD_SIZE * TILE_SIZE + 100);
+        frame.setSize(BOARD_SIZE * TILE_SIZE, BOARD_SIZE * TILE_SIZE);
+        frame.setResizable(false);
 
-        chessPanel = new JPanel(new GridLayout(BOARD_SIZE, BOARD_SIZE)) {
+        chessPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -146,11 +147,7 @@ public class PokemonChess {
         chessPanel.setPreferredSize(new Dimension(BOARD_SIZE * TILE_SIZE, BOARD_SIZE * TILE_SIZE));
         chessPanel.addMouseListener(new ChessMouseListener());
 
-        statusLabel = new JLabel("Player 1's Turn", SwingConstants.CENTER);
-        statusLabel.setFont(new Font("Arial", Font.BOLD, 16));
-
-        frame.add(chessPanel, BorderLayout.CENTER);
-        frame.add(statusLabel, BorderLayout.NORTH);
+        frame.add(chessPanel);
         frame.setVisible(true);
     }
 
@@ -211,13 +208,11 @@ public class PokemonChess {
                     if (board.isValidMove(selectedRow, selectedCol, row, col)) {
                         board.movePokemon(selectedRow, selectedCol, row, col);
                         player1Turn = !player1Turn;
-                        statusLabel.setText((player1Turn ? "Player 1" : "Player 2") + "'s Turn");
                     }
                 } else if (target.isPlayer2() != selected.isPlayer2()) {
                     if (board.isValidAttack(selectedRow, selectedCol, row, col)) {
                         board.attack(selectedRow, selectedCol, row, col);
                         player1Turn = !player1Turn;
-                        statusLabel.setText((player1Turn ? "Player 1" : "Player 2") + "'s Turn");
                     }
                 }
             
