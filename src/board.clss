@@ -1,0 +1,121 @@
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Board {
+   private Pokemon[][] grid;
+
+   public Board(int var1) {
+      this.grid = new Pokemon[var1][var1];
+   }
+
+   public void placePokemon(int var1, int var2, Pokemon var3) {
+      if (this.isValidPosition(var1, var2)) {
+         this.grid[var1][var2] = var3;
+      }
+
+   }
+
+   public Pokemon getPokemon(int var1, int var2) {
+      return this.isValidPosition(var1, var2) ? this.grid[var1][var2] : null;
+   }
+
+   public boolean movePokemon(int var1, int var2, int var3, int var4) {
+      if (!this.isValidMove(var1, var2, var3, var4)) {
+         return false;
+      } else {
+         this.grid[var3][var4] = this.grid[var1][var2];
+         this.grid[var1][var2] = null;
+         return true;
+      }
+   }
+
+   public boolean isValidMove(int var1, int var2, int var3, int var4) {
+      if (this.isValidPosition(var1, var2) && this.isValidPosition(var3, var4)) {
+         Pokemon var5 = this.grid[var1][var2];
+         if (var5 != null && this.grid[var3][var4] == null) {
+            int var6 = Math.abs(var3 - var1);
+            int var7 = Math.abs(var4 - var2);
+            int var8 = var5.getMovement();
+            if (var5.getMovement() == 5) {
+               return (var6 == 0 || var7 == 0) && !this.isPathBlocked(var1, var2, var3, var4);
+            } else if (var5.getMovement() == 3 && var6 == var7) {
+               return !this.isPathBlocked(var1, var2, var3, var4);
+            } else if (var5.getMovement() == 3) {
+               return var6 == 2 && var7 == 1 || var6 == 1 && var7 == 2;
+            } else if (var5.getMovement() == 7) {
+               return (var6 == 0 || var7 == 0 || var6 == var7) && !this.isPathBlocked(var1, var2, var3, var4);
+            } else {
+               return var6 <= var8 && var7 <= var8;
+            }
+         } else {
+            return false;
+         }
+      } else {
+         return false;
+      }
+   }
+
+   public boolean isValidAttack(int var1, int var2, int var3, int var4) {
+      if (this.isValidPosition(var1, var2) && this.isValidPosition(var3, var4)) {
+         Pokemon var5 = this.grid[var1][var2];
+         Pokemon var6 = this.grid[var3][var4];
+         if (var5 != null && var6 != null && var5.isPlayer2() != var6.isPlayer2()) {
+            return Math.abs(var1 - var3) <= 1 && Math.abs(var2 - var4) <= 1;
+         } else {
+            return false;
+         }
+      } else {
+         return false;
+      }
+   }
+
+   public boolean attack(int var1, int var2, int var3, int var4) {
+      if (!this.isValidAttack(var1, var2, var3, var4)) {
+         return false;
+      } else {
+         Pokemon var5 = this.grid[var1][var2];
+         Pokemon var6 = this.grid[var3][var4];
+         var6.takeDamage(var5.getAttack());
+         if (var6.getHp() <= 0) {
+            this.grid[var3][var4] = null;
+         }
+
+         return true;
+      }
+   }
+
+   private boolean isPathBlocked(int var1, int var2, int var3, int var4) {
+      int var5 = Integer.compare(var3, var1);
+      int var6 = Integer.compare(var4, var2);
+      int var7 = var1 + var5;
+
+      for(int var8 = var2 + var6; var7 != var3 || var8 != var4; var8 += var6) {
+         if (this.grid[var7][var8] != null) {
+            return true;
+         }
+
+         var7 += var5;
+      }
+
+      return false;
+   }
+
+   private boolean isValidPosition(int var1, int var2) {
+      return var1 >= 0 && var1 < this.grid.length && var2 >= 0 && var2 < this.grid[0].length;
+   }
+
+   public List<Point> getValidMoves(int var1, int var2) {
+      ArrayList var3 = new ArrayList();
+
+      for(int var4 = 0; var4 < this.grid.length; ++var4) {
+         for(int var5 = 0; var5 < this.grid[0].length; ++var5) {
+            if (this.isValidMove(var1, var2, var4, var5)) {
+               var3.add(new Point(var5, var4));
+            }
+         }
+      }
+
+      return var3;
+   }
+}
