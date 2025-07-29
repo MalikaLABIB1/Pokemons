@@ -1,4 +1,4 @@
-package src;
+
 public class CombatPokemon {
     private static final int TAILLE = 9;
     private Pokemon[][] grille;
