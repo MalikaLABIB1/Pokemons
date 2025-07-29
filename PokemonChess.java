@@ -19,7 +19,7 @@ public class PokemonChess {
     private boolean player1Turn = true;
     private Map<String, BufferedImage> pokemonImages = new HashMap<>();
     private List<String> allPokemonNames = new ArrayList<>();
-    
+    private JLabel turnLabel; 
 
     public static void main(String[] args) {
         new PokemonChess();
@@ -99,21 +99,20 @@ public class PokemonChess {
     
     private void assignRandomTeams() {
         Collections.shuffle(allPokemonNames);
-        
-        
+
         for (int i = 0; i < 9; i++) {
             board.placePokemon(0, i, new Pokemon(allPokemonNames.get(i), getPokemonStats(allPokemonNames.get(i)), false));
-            
-            board.placePokemon(1, i, new Pokemon(allPokemonNames.get(i+9), getPokemonStats(allPokemonNames.get(i+9)), false));
-            
-            board.placePokemon(8, i, new Pokemon(allPokemonNames.get(i+18), getPokemonStats(allPokemonNames.get(i+18)), true));
-            
-            board.placePokemon(7, i, new Pokemon(allPokemonNames.get(i+27), getPokemonStats(allPokemonNames.get(i+27)), true));
+            board.placePokemon(1, i, new Pokemon(allPokemonNames.get(i + 9), getPokemonStats(allPokemonNames.get(i + 9)), false));
+            board.placePokemon(2, i, new Pokemon(allPokemonNames.get(i + 18), getPokemonStats(allPokemonNames.get(i + 18)), false)); // NEW: row 2
+
+            board.placePokemon(8, i, new Pokemon(allPokemonNames.get(i + 27), getPokemonStats(allPokemonNames.get(i + 27)), true));
+            board.placePokemon(7, i, new Pokemon(allPokemonNames.get(i + 36), getPokemonStats(allPokemonNames.get(i + 36)), true));
+            board.placePokemon(6, i, new Pokemon(allPokemonNames.get(i + 45), getPokemonStats(allPokemonNames.get(i + 45)), true)); // NEW: row 6
         }
     }
 
     private int[] getPokemonStats(String name) {
-        int index = Integer.parseInt(name); // 
+        int index = Integer.parseInt(name); 
         
         if (index <= 8) { 
             return new int[]{100, 20, 5}; 
@@ -133,8 +132,12 @@ public class PokemonChess {
     private void createGUI() {
         frame = new JFrame("Pokemon Chess");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(BOARD_SIZE * TILE_SIZE + 16, BOARD_SIZE * TILE_SIZE + 39);
+        frame.setSize(BOARD_SIZE * TILE_SIZE + 16, BOARD_SIZE * TILE_SIZE + 70); 
         frame.setResizable(false);
+
+        turnLabel = new JLabel(getTurnText(), SwingConstants.CENTER);
+        turnLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        turnLabel.setPreferredSize(new Dimension(BOARD_SIZE * TILE_SIZE, 30));
 
         chessPanel = new JPanel() {
             @Override
@@ -146,8 +149,14 @@ public class PokemonChess {
         chessPanel.setPreferredSize(new Dimension(BOARD_SIZE * TILE_SIZE, BOARD_SIZE * TILE_SIZE));
         chessPanel.addMouseListener(new ChessMouseListener());
 
-        frame.add(chessPanel);
+        frame.setLayout(new BorderLayout());
+        frame.add(turnLabel, BorderLayout.NORTH);
+        frame.add(chessPanel, BorderLayout.CENTER);
         frame.setVisible(true);
+    }
+
+    private String getTurnText() {
+        return player1Turn ? "Player 1's Turn (Blue)" : "Player 2's Turn (Red)";
     }
 
     private void drawBoard(Graphics g) {
@@ -177,7 +186,7 @@ public class PokemonChess {
 
                 // 3. Highlight attackable opponent in red
                 if (attackable.contains(new Point(col, row))) {
-                    g.setColor(new Color(255, 0, 0, 120)); // Red transparent
+                    g.setColor(new Color(255, 0, 0, 120)); 
                     g.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                 }
 
@@ -197,7 +206,7 @@ public class PokemonChess {
             }
         }
         for (Point move : validMoves) {
-            g.setColor(new Color(0, 255, 0, 120)); // Green transparent
+            g.setColor(new Color(0, 255, 0, 120)); 
             g.fillRect(move.x * TILE_SIZE, move.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
         }
     }
@@ -207,14 +216,13 @@ public class PokemonChess {
         public void mouseClicked(MouseEvent e) {
             int col = e.getX() / TILE_SIZE;
             int row = e.getY() / TILE_SIZE;
-            
 
             if (selectedRow == -1) {
                 Pokemon pokemon = board.getPokemon(row, col);
                 if (pokemon != null && pokemon.isPlayer2() != player1Turn) {
                     selectedRow = row;
                     selectedCol = col;
-                    validMoves = board.getValidMoves(row, col); // get valid moves
+                    validMoves = board.getValidMoves(row, col); 
                     chessPanel.repaint();
                 }
             } else {
@@ -235,10 +243,10 @@ public class PokemonChess {
             
                 selectedRow = -1;
                 selectedCol = -1;
-                validMoves.clear(); 
+                validMoves.clear();
+                turnLabel.setText(getTurnText()); 
                 chessPanel.repaint();
             }
-            
         }
     }
 }
