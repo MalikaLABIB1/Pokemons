@@ -43,7 +43,7 @@ Bienvenue dans **Pokémon**, un mini-jeu en Java développé dans le cadre des T
 ---
 
 ##  Les Taches : 
--Malika LABIB : Développeuse moteur de combat + Interfaces
+-Malika LABIB : Développeuse moteur de combat (Tp de Base) + Interfaces
   - Implémente les classes Type et Pokemon.
   - Gère la lecture du Pokédex CSV pour instancier automatiquement les pokémons.
   - Créer des tests de combats simples dans la classe Main.
