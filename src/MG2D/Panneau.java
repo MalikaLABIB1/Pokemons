@@ -1,6 +1,5 @@
 package MG2D;
 
-import MG2D.Couleur;
 import MG2D.geometrie.Dessin;
 import MG2D.geometrie.Image;
 import MG2D.geometrie.Point;
