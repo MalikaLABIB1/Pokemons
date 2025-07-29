@@ -1,4 +1,3 @@
-package src;
 
 public class type {
     public static final int NORMAL = 0;
