@@ -103,11 +103,11 @@ public class PokemonChess {
         for (int i = 0; i < 9; i++) {
             board.placePokemon(0, i, new Pokemon(allPokemonNames.get(i), getPokemonStats(allPokemonNames.get(i)), false));
             board.placePokemon(1, i, new Pokemon(allPokemonNames.get(i + 9), getPokemonStats(allPokemonNames.get(i + 9)), false));
-            board.placePokemon(2, i, new Pokemon(allPokemonNames.get(i + 18), getPokemonStats(allPokemonNames.get(i + 18)), false)); // NEW: row 2
+            board.placePokemon(2, i, new Pokemon(allPokemonNames.get(i + 18), getPokemonStats(allPokemonNames.get(i + 18)), false)); 
 
             board.placePokemon(8, i, new Pokemon(allPokemonNames.get(i + 27), getPokemonStats(allPokemonNames.get(i + 27)), true));
             board.placePokemon(7, i, new Pokemon(allPokemonNames.get(i + 36), getPokemonStats(allPokemonNames.get(i + 36)), true));
-            board.placePokemon(6, i, new Pokemon(allPokemonNames.get(i + 45), getPokemonStats(allPokemonNames.get(i + 45)), true)); // NEW: row 6
+            board.placePokemon(6, i, new Pokemon(allPokemonNames.get(i + 45), getPokemonStats(allPokemonNames.get(i + 45)), true)); 
         }
     }
 
@@ -115,17 +115,17 @@ public class PokemonChess {
         int index = Integer.parseInt(name); 
         
         if (index <= 8) { 
-            return new int[]{100, 20, 5}; 
+            return new int[]{100, 20, 5, 10}; 
         } else if (index <= 16) { 
-            return new int[]{90, 25, 3};
+            return new int[]{90, 25, 3, 12};
         } else if (index <= 24) { 
-            return new int[]{80, 30, 3};
+            return new int[]{80, 30, 3, 14};
         } else if (index <= 32) { 
-            return new int[]{120, 35, 7};
+            return new int[]{120, 35, 7, 8};
         } else if (index <= 40) { 
-            return new int[]{150, 40, 1};
+            return new int[]{150, 40, 1, 6};
         } else { 
-            return new int[]{70, 15, 1};
+            return new int[]{70, 15, 1, 16};
         }
     }
 
@@ -160,7 +160,6 @@ public class PokemonChess {
     }
 
     private void drawBoard(Graphics g) {
-        // 1. Collect attackable positions
         Set<Point> attackable = new HashSet<>();
         if (selectedRow != -1 && selectedCol != -1) {
             for (int row = 0; row < BOARD_SIZE; row++) {
@@ -178,13 +177,11 @@ public class PokemonChess {
                 g.setColor(tileColor);
                 g.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
-                // 2. Highlight selected tile
                 if (row == selectedRow && col == selectedCol) {
                     g.setColor(new Color(255, 255, 0, 100));
                     g.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                 }
 
-                // 3. Highlight attackable opponent in red
                 if (attackable.contains(new Point(col, row))) {
                     g.setColor(new Color(255, 0, 0, 120)); 
                     g.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
