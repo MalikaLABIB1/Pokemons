@@ -72,13 +72,18 @@ Bienvenue dans **Pokémon**, un mini-jeu en Java développé dans le cadre des T
 ##  Lancement du projet
 
 1. Pour compiler et exécuter le projet, utilisez les commandes suivantes :
+  Tp de base :
+      ```bash
+       javac -cp src src/type.java src/Pokemon.java src/Main.java
+       java -cp src Main
+  Tp avancé :
    ```bash
-   javac Pokemon.java Board.java PokemonChess.java
-   java PokemonChess
-
+       javac Pokemon.java Board.java PokemonChess.java
+       java PokemonChess
+  ```
 2. Cloner le dépôt :
-   ```bash
-    git clone https://github.com/MalikaLABIB1/Pokemons.git
-    cd Pokemons
+  ```bash
+   git clone https://github.com/MalikaLABIB1/Pokemons.git
+   cd Pokemons
 
 
