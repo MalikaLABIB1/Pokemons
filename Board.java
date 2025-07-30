@@ -73,21 +73,19 @@ public class Board {
         return Math.abs(fromRow - toRow) <= 1 && Math.abs(fromCol - toCol) <= 1;
     }
 
-    public boolean attack(int attackerRow, int attackerCol, int targetRow, int targetCol) {
-        if (!isValidAttack(attackerRow, attackerCol, targetRow, targetCol)) {
-            return false;
+    public void attack(int fromRow, int fromCol, int toRow, int toCol) {
+        Pokemon attacker = getPokemon(fromRow, fromCol);
+        Pokemon defender = getPokemon(toRow, toCol);
+        if (attacker == null || defender == null) return;
+
+        attacker.attaque(defender);
+
+        if (attacker.getHp() <= 0) {
+            setPokemon(fromRow, fromCol, null);
         }
-
-        Pokemon attacker = grid[attackerRow][attackerCol];
-        Pokemon target = grid[targetRow][targetCol];
-
-        target.takeDamage(attacker.getAttack());
-
-        if (target.getHp() <= 0) {
-            grid[targetRow][targetCol] = null;
+        if (defender.getHp() <= 0) {
+            setPokemon(toRow, toCol, null);
         }
-
-        return true;
     }
 
     private boolean isPathBlocked(int fromRow, int fromCol, int toRow, int toCol) {
@@ -122,5 +120,11 @@ public class Board {
             }
         }
         return validMoves;
+    }
+
+    public void setPokemon(int row, int col, Pokemon pokemon) {
+        if (isValidPosition(row, col)) {
+            grid[row][col] = pokemon;
+        }
     }
 }
